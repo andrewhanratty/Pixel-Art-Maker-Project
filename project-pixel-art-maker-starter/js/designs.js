@@ -33,10 +33,9 @@ let changeCell = function(event){
 
 cell.addEventListener('click', changeCell);
 
+// Select Reset button
 const clearGrid = getElementById('clear_grid');
-
+// Assign event listener to Reset button, when clicked it removes the table contents
 clearGrid.addEventListener('click', function(){
-  pixelGrid.remove(row);
+  pixelGrid.remove();
 });
-//  evt.pixelGrid.clear();
-//});
