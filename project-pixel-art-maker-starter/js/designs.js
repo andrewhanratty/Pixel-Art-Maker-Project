@@ -33,6 +33,10 @@ let changeCell = function(event){
 
 cell.addEventListener('click', changeCell);
 
-//document.getElementById('clear_grid').addEventListener('click', function(evt){
+const clearGrid = getElementById('clear_grid');
+
+clearGrid.addEventListener('click', function(){
+  pixelGrid.remove(row);
+});
 //  evt.pixelGrid.clear();
 //});
