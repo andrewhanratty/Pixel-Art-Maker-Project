@@ -38,3 +38,10 @@ td {
 input[type=number] {
     width: 6em;
 }
+
+input[type=reset],
+input[type=number],
+input[type=submit],
+input[type=color] {
+  cursor: pointer;
+}
