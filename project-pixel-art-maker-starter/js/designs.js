@@ -46,14 +46,7 @@ document.getElementById('clear_grid').addEventListener('click', deleteGrid);
 // Select color input
 let pickColor = document.getElementById('colorPicker').value;
 
-// Select individual cell
-//let square = document.getElementsByClassName('aSquare');
-
-// Alter the background color of a cell
-//function cellColor(e) {
-//  e.target.style.color = document.getElementById('colorPicker').value;
-//}
-//let indiCell = document.getElementsByTagName('td');
+// Create an on/off function for colorchanging.
 let colorChanger = function(e){
   if(e.target.style.backgroundColor != 'white') {
     e.target.style.backgroundColor = 'white';
@@ -61,5 +54,5 @@ let colorChanger = function(e){
     e.target.style.backgroundColor = pickColor;
   }
 }
-
+// Create event listener for changing td color when clicked
 pixelGrid.addEventListener('click', colorChanger);
