@@ -4,17 +4,18 @@ const pixelGrid = document.getElementById('pixel_canvas');
 
 // Create function that deletes all of the rows and columns
 function deleteGrid() {
-//  var tbl = document.getElementById('pixel_canvas');
-// Use 'let' to create the variable, since the value will change
+// var tbl = document.getElementById('pixel_canvas'); (This has the same value as the variable called pixelGrid)
+// Use 'let' to create the variable len, since the value will change
   let len = pixelGrid.row.length;
   for(let r = 0; r < len; r++){
+// .deleteRow(-1) deletes the last row of the table
     pixelGrid.deleteRow(-1);
   }
 }
 
 // Create a function that makes the grid
 function makeGrid() {
-//  deleteGrid();
+  deleteGrid();
   console.log("inside makegrid");
   var m = document.getElementById('input_width').value;
   var n = document.getElementById('input_height').value;
