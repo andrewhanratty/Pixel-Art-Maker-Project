@@ -4,7 +4,7 @@ const pixelGrid = document.getElementById('pixel_canvas');
 
 // Create a function that makes the grid
 function makeGrid() {
-  deleteGrid();
+//  deleteGrid();
   console.log("inside makegrid");
   var m = document.getElementById('input_width').value;
   var n = document.getElementById('input_height').value;
@@ -38,7 +38,7 @@ document.getElementById('sizePicker').addEventListener('submit', function(evt){
   makeGrid();
 });
 
-
+document.getElementById('clear_grid').addEventListener('click', deleteGrid);
 // Select the Reset button
 //const clearGrid = document.getElementById('clear_grid');
 // Add an event listener for clicks on the reset button that triggers the deleteRowCol function
