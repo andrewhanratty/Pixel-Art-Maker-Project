@@ -39,21 +39,19 @@ document.getElementById('sizePicker').addEventListener('submit', function(evt){
 });
 
 document.getElementById('clear_grid').addEventListener('click', deleteGrid);
-// Select the Reset button
-//const clearGrid = document.getElementById('clear_grid');
-// Add an event listener for clicks on the reset button that triggers the deleteRowCol function
-//clearGrid.addEventListener('click', deleteRowCol);
 
-
+//document.getElementById('clear_grid').addEventListener('mouseover', function(event) {
+//    event.target.style.color = "orange";)
+//})
 // Select color input
-//var colorPick = document.getElementById('colorPicker').value;
+//var pickColor = document.getElementById('colorPicker').value;
 
 // Select individual cell
-//var square = document.querySelector('.aSquare');
+let square = document.getElementsByClassName('aSquare');
 
 // Alter the background color of a cell
-//const cellColor = function(e){
-//  e.target.square.setAttribute('style', 'background-color: colorPick');
-//}
+function cellColor(e) {
+  e.target.style.color = document.getElementById('colorPicker').value;
+}
 
-//square.addEventListener('click', cellColor);
+square.addEventListener('click', cellColor);
