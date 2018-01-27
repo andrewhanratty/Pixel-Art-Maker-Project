@@ -2,12 +2,24 @@
 // Select the table element to build upon
 const pixelGrid = document.getElementById('pixel_canvas');
 
+// Create function that deletes all of the rows and columns
+function deleteGrid() {
+//  var tbl = document.getElementById('pixel_canvas');
+// Use 'let' to create the variable, since the value will change
+  let len = pixelGrid.row.length;
+  for(let r = 0; r < len; r++){
+    pixelGrid.deleteRow(-1);
+  }
+}
+
+// Create a function that makes the grid
 function makeGrid() {
+//  deleteGrid();
   console.log("inside makegrid");
   var m = document.getElementById('input_width').value;
   var n = document.getElementById('input_height').value;
   for(let i = 1; i <= m; i++){
-    const row = document.createElement('tr', );
+    const row = document.createElement('tr');
     for(let j = 1; j <= n; j++){
       const cell = document.createElement('td');
       cell.classList.add('aSquare');
@@ -24,22 +36,22 @@ document.getElementById('sizePicker').addEventListener('submit', function(evt){
   makeGrid();
 });
 
+
+// Select the Reset button
+//const clearGrid = document.getElementById('clear_grid');
+// Add an event listener for clicks on the reset button that triggers the deleteRowCol function
+//clearGrid.addEventListener('click', deleteRowCol);
+
+
 // Select color input
-var colorPick = document.getElementById('colorPicker').value;
+//var colorPick = document.getElementById('colorPicker').value;
 
 // Select individual cell
-var square = document.querySelector('.aSquare');
+//var square = document.querySelector('.aSquare');
 
 // Alter the background color of a cell
-const cellColor = function(e){
-  e.target.square.setAttribute('style', 'background-color: colorPick');
-}
+//const cellColor = function(e){
+//  e.target.square.setAttribute('style', 'background-color: colorPick');
+//}
 
-square.addEventListener('click', cellColor);
-
-// Select Reset button
-const clearGrid = document.getElementById('clear_grid');
-// Assign event listener to Reset button, when clicked it removes the table contents
-clearGrid.addEventListener('click', function(){
-  pixelGrid.remove();
-});
+//square.addEventListener('click', cellColor);
