@@ -44,14 +44,17 @@ document.getElementById('clear_grid').addEventListener('click', deleteGrid);
 //    event.target.style.color = "orange";)
 //})
 // Select color input
-//var pickColor = document.getElementById('colorPicker').value;
+let pickColor = document.getElementById('colorPicker');
 
 // Select individual cell
 let square = document.getElementsByClassName('aSquare');
 
 // Alter the background color of a cell
-function cellColor(e) {
-  e.target.style.color = document.getElementById('colorPicker').value;
-}
+//function cellColor(e) {
+//  e.target.style.color = document.getElementById('colorPicker').value;
+//}
+//let indiCell = document.getElementsByTagName('td');
 
-square.addEventListener('click', cellColor);
+pixelGrid.addEventListener('click', function(e) {
+  e.target.style.backgroundColor = 'green';
+}, false);
