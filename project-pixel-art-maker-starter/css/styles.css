@@ -36,6 +36,11 @@ td {
 }
 
 input[type=number] {
+  border-radius: 25px;
+  box-shadow: 0px;
+}
+
+input[type=number] {
     width: 6em;
 }
 
