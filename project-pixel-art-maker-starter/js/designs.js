@@ -33,26 +33,36 @@ function deleteGrid() {
 
 // When size is submitted by the user, call makeGrid()
 document.getElementById('sizePicker').addEventListener('submit', function(evt){
-// apply preventDefault because the page's default will be to page-refresh
+// apply preventDefault because submit's default will be to first refresh the page
   evt.preventDefault();
   makeGrid();
 });
 
+// Select color input and its value
+let pickColor = document.getElementById('colorPicker');
+let colr = pickColor.value;
+
+// Create an event listener that clears grid when Reset button is clicked
 document.getElementById('clear_grid').addEventListener('click', deleteGrid);
+// Create an event listener that returns the colorpicker's color value to black
+// when Reset button is clicked.
+document.getElementById('clear_grid').addEventListener('click', function(){
+  pickColor.value = "black";
+});
 
-//document.getElementById('clear_grid').addEventListener('mouseover', function(event) {
-//    event.target.style.color = "orange";)
-//})
-// Select color input
-let pickColor = document.getElementById('colorPicker').value;
+// Detect changes in colorpicker's value and apply
+pickColor.addEventListener("change", function(e) {
+    colr = e.target.value;
+});
 
-// Create an on/off function for colorchanging.
+// Create an on/off function for removing color.
 let colorChanger = function(e){
   if(e.target.style.backgroundColor != 'white') {
     e.target.style.backgroundColor = 'white';
   } else {
-    e.target.style.backgroundColor = pickColor;
+    e.target.style.backgroundColor = colr;
   }
 }
+
 // Create event listener for changing td color when clicked
 pixelGrid.addEventListener('click', colorChanger);
