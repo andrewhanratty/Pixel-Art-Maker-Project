@@ -1,8 +1,30 @@
 
 // Select the table element to build upon
 const pixelGrid = document.getElementById('pixel_canvas');
-
+let color = document.getElementById("colorPicker");
 // Create a function that makes the grid
+
+// Create function that deletes all of the rows and columns
+function deleteGrid() {
+// Use 'let' to create the variable len, since the value will change
+  let rows = document.getElementsByTagName('tr');
+  let len = pixelGrid.rows.length;
+  for(let r = 0; r < len; r++){
+// .deleteRow(-1) deletes the last row of the table
+    pixelGrid.deleteRow(-1);
+  }
+    color.value = "black";
+}
+
+let addEvent = function(cell) {
+  cell.addEventListener('click', function() {
+    cell.style.backgroundColor = color.value;
+    cell.addEventListener('dblclick', function() {
+      cell.style.backgroundColor = 'white';
+    });
+  });
+}
+
 function makeGrid() {
 //  deleteGrid();
   console.log("inside makegrid");
@@ -14,23 +36,11 @@ function makeGrid() {
       const cell = document.createElement('td');
       cell.classList.add('aSquare');
       row.appendChild(cell);
+      cell.addEventListener('click', addEvent(cell));
       }
     pixelGrid.appendChild(row);
   }
 }
-
-// Create function that deletes all of the rows and columns
-function deleteGrid() {
-// var tbl = document.getElementById('pixel_canvas'); (This has the same value as the variable called pixelGrid)
-// Use 'let' to create the variable len, since the value will change
-  let rows = document.getElementsByTagName('tr');
-  let len = pixelGrid.rows.length;
-  for(let r = 0; r < len; r++){
-// .deleteRow(-1) deletes the last row of the table
-    pixelGrid.deleteRow(-1);
-  }
-}
-
 // When size is submitted by the user, call makeGrid()
 document.getElementById('sizePicker').addEventListener('submit', function(evt){
 // apply preventDefault because submit's default will be to first refresh the page
@@ -38,31 +48,32 @@ document.getElementById('sizePicker').addEventListener('submit', function(evt){
   makeGrid();
 });
 
-// Select color input and its value
-let pickColor = document.getElementById('colorPicker');
-let colr = pickColor.value;
-
 // Create an event listener that clears grid when Reset button is clicked
 document.getElementById('clear_grid').addEventListener('click', deleteGrid);
+
 // Create an event listener that returns the colorpicker's color value to black
 // when Reset button is clicked.
-document.getElementById('clear_grid').addEventListener('click', function(){
-  pickColor.value = "black";
-});
+//document.getElementById('clear_grid').addEventListener('click', function(){
+//  pickColor.value = "black";
+//});
+
+// Select color input and its value
+//let pickColor = document.getElementById('colorPicker');
+//let colr = pickColor.value;
 
 // Detect changes in colorpicker's value and apply
-pickColor.addEventListener("change", function(e) {
-    colr = e.target.value;
-});
+//pickColor.addEventListener("change", function(e) {
+//    colr = e.target.value;
+//});
 
 // Create an on/off function for removing color.
-let colorChanger = function(e){
-  if(e.target.style.backgroundColor != 'white') {
-    e.target.style.backgroundColor = 'white';
-  } else {
-    e.target.style.backgroundColor = colr;
-  }
-}
+//let colorChanger = function(e){
+//  if(e.target.style.backgroundColor != 'white') {
+//    e.target.style.backgroundColor = 'white';
+//  } else {
+//    e.target.style.backgroundColor = colr;
+//  }
+//}
 
 // Create event listener for changing td color when clicked
-pixelGrid.addEventListener('click', colorChanger);
+//pixelGrid.addEventListener('click', colorChanger);
